@@ -63,7 +63,7 @@
       padding: 0 1.5rem;
     }
 
-    /* Navigation Bar */
+    /* Navigation Bar - Fixed Collision Free Layout */
     nav {
       position: sticky;
       top: 0;
@@ -89,7 +89,7 @@
     .logo span {
       color: var(--accent);
     }
-
+    
     .nav-links {
       display: flex;
       gap: 1.5rem;
@@ -149,7 +149,7 @@
       transform: translateY(-1px);
     }
 
-    /* Fixed Mobile Drawer: Completely hidden by default on desktop */
+    /* Mobile Drawer */
     .mobile-drawer {
       display: none;
     }
@@ -222,3 +222,1371 @@
     .hero-badge-strip {
       display: flex;
       flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 0.75rem;
+      background: rgba(46, 204, 113, 0.12);
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: #4ade80;
+      font-weight: 500;
+    }
+    .status-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #4ade80;
+    }
+    .role-badge {
+      font-size: 0.75rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+      line-height: 1.1;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 span.gradient {
+      background: linear-gradient(90deg, #ffffff 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p.lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    /* Headshot Photo Styling */
+    .hero-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 
+                  0 0 35px rgba(212, 163, 89, 0.12);
+      border: 1px solid rgba(212, 163, 89, 0.22);
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+    .hero-image-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(9, 10, 13, 0.5) 0%, rgba(9, 10, 13, 0) 35%);
+      pointer-events: none;
+    }
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-image-wrapper:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 163, 89, 0.5);
+    }
+
+    /* Auto-Scrolling Logo Marquee */
+    .marquee-section {
+      padding: 1.6rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.012);
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    .marquee-wrapper {
+      display: flex;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      overflow: hidden;
+    }
+    .marquee-content {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: space-around;
+      gap: 3.5rem;
+      animation: scrollMarquee 26s linear infinite;
+      min-width: 100%;
+    }
+    .marquee-wrapper:hover .marquee-content {
+      animation-play-state: paused;
+    }
+    @keyframes scrollMarquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+    .brand-logo-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #cbd5e1;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      opacity: 0.75;
+      transition: opacity 0.25s ease, color 0.25s ease;
+      white-space: nowrap;
+    }
+    .brand-logo-item svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .brand-logo-item:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    /* 2. Timeline / Career Record */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+    .timeline-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.25s ease;
+    }
+    .timeline-item:hover {
+      border-color: rgba(212, 163, 89, 0.4);
+    }
+    @media (min-width: 720px) {
+      .timeline-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+    .timeline-role-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .timeline-company {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-bullets {
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding-top: 0.35rem;
+    }
+    .timeline-bullets li {
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+    }
+    .timeline-bullets li::before {
+      content: "▹";
+      color: var(--accent);
+    }
+    .timeline-period {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: #94a3b8;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      padding: 0.25rem 0.75rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    /* 3. Featured Direction: Jananya Spotlight */
+    .spotlight-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px) {
+      .spotlight-card {
+        grid-template-columns: 1.12fr 0.88fr;
+      }
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect */
+      height: 0;
+      background: #000;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .spotlight-info {
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* 4. In The Media Section */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.35rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 1.5rem;
+    }
+    .media-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .media-card:hover {
+      border-color: rgba(212, 163, 89, 0.45);
+      transform: translateY(-3px);
+    }
+    .media-masthead {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .media-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 0.7rem;
+      color: #fff;
+    }
+    .media-quote {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.1rem;
+      line-height: 1.55;
+    }
+    .media-byline {
+      font-size: 0.75rem;
+      color: #7d899d;
+      margin-bottom: 0.8rem;
+    }
+
+    .feature-honor-box {
+      background: linear-gradient(135deg, rgba(212, 163, 89, 0.08) 0%, rgba(18, 21, 28, 0.9) 100%);
+      border: 1px solid rgba(212, 163, 89, 0.3);
+      border-radius: 12px;
+      padding: 1.6rem;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    @media (min-width: 768px) {
+      .feature-honor-box {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    /* 5. Film & Commercials */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.45rem 1.05rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .filter-btn:hover {
+      color: #fff;
+      border-color: var(--border-light);
+    }
+    .filter-btn.active {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 163, 89, 0.45);
+      box-shadow: 0 12px 30px -10px var(--accent-glow);
+    }
+    .work-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .work-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.35rem;
+    }
+    .work-role {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+    .work-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+      flex-grow: 1;
+    }
+    .work-links {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .btn-link-out {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.76rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .btn-link-out:hover {
+      background: rgba(212, 163, 89, 0.12);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .expand-toggle {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0;
+      font-family: inherit;
+    }
+    .expand-toggle:hover {
+      text-decoration: underline;
+    }
+    .expand-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, opacity 0.25s ease-out;
+      opacity: 0;
+      font-size: 0.83rem;
+      color: var(--muted);
+      border-top: 1px dashed var(--border);
+      margin-top: 0.5rem;
+      padding-top: 0;
+    }
+    .expand-content.open {
+      max-height: 250px;
+      opacity: 1;
+      padding-top: 0.7rem;
+    }
+    .expand-content ul {
+      list-style: disc;
+      padding-left: 1.1rem;
+      line-height: 1.55;
+    }
+
+    /* 6. Credentials & Foundation */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.35rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.45rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #090a0d;
+      border: 1px solid var(--accent);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: radial-gradient(circle at 50% 0%, #1d222e 0%, #10131a 100%);
+      border: 1px solid rgba(212, 163, 89, 0.28);
+      border-radius: 16px;
+      padding: 3.2rem 1.5rem;
+      text-align: center;
+    }
+    .contact-card h2 {
+      font-size: 2.1rem;
+      margin-bottom: 0.7rem;
+    }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-top: 1.8rem;
+    }
+
+    footer {
+      padding: 2.2rem 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive Logic - Switch to mobile menu below 992px to prevent collisions */
+    @media (max-width: 992px) {
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-actions {
+        display: none;
+      }
+      
+      /* Mobile Drawer */
+      .mobile-drawer {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(9, 10, 13, 0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 1.8rem 1.5rem;
+        gap: 1.1rem;
+        transform: translateY(-150%);
+        opacity: 0;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+        pointer-events: none;
+        z-index: 999;
+      }
+      .mobile-drawer.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .mobile-drawer a {
+        font-size: 1rem;
+        color: var(--text);
+        padding: 0.4rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .mobile-drawer .btn-drawer-cta {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 8px;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 3.5rem 0 3rem;
+      }
+      .hero-image-wrapper {
+        max-width: 260px;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .hero-actions .btn {
+        width: 100%;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">ANAND ANILKUMAR<span>.</span></a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Career Record</a></li>
+        <li><a href="#spotlight">Featured Direction</a></li>
+        <li><a href="#media">In The Media</a></li>
+        <li><a href="#portfolio">Films &amp; Ads</a></li>
+      </ul>
+
+      <!-- Desktop Action CTAs (Separated from links to eliminate collision) -->
+      <div class="nav-actions">
+        <a href="Anand_Anilkumar_Resume.pdf" download="Anand_Anilkumar_Resume.pdf" class="btn-nav-download">
+          Download CV ⤓
+        </a>
+        <a href="#contact" class="btn-nav-hire">Hire / Contact</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-toggle" aria-label="Toggle Menu" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#experience" class="mobile-nav-link">Career Record</a>
+    <a href="#spotlight" class="mobile-nav-link">Featured Direction</a>
+    <a href="#media" class="mobile-nav-link">In The Media</a>
+    <a href="#portfolio" class="mobile-nav-link">Films &amp; Ads</a>
+    <a href="https://www.imdb.com/name/nm11380196/" target="_blank" rel="noopener" class="mobile-nav-link">IMDb Profile ↗</a>
+    <a href="Anand_Anilkumar_Resume.pdf" download="Anand_Anilkumar_Resume.pdf" class="btn-drawer-cta btn-primary">
+      Download CV (PDF) ⤓
+    </a>
+    <a href="#contact" class="btn-drawer-cta btn-secondary">
+      Connect / Contact
+    </a>
+  </div>
+
+  <!-- 1. Hero & About Section -->
+  <header class="hero" id="about">
+    <div class="container">
+      <div class="hero-split">
+        <div class="hero-content">
+          <div class="hero-badge-strip">
+            <div class="status-badge"><span class="dot"></span> Based in Abu Dhabi • Available Across UAE</div>
+            <div class="role-badge">10+ Years Creative Leadership &amp; Execution</div>
+          </div>
+          
+          <h1>
+            Translating cinematic vision into <span class="gradient">high-impact visual production.</span>
+          </h1>
+          
+          <p class="lead">
+            Creative Director &amp; Creative Producer with 10+ years across feature films, global advertising, branded content, corporate films, documentaries, VFX, and digital creative. Bringing creative leadership with hands-on production muscle from concept to delivery.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Connect for Opportunities</a>
+            <a href="Anand_Anilkumar_Resume.pdf" download="Anand_Anilkumar_Resume.pdf" class="btn btn-secondary" style="border-color: var(--accent); color: var(--accent);">
+              Download Resume (PDF) ⤓
+            </a>
+            <a href="#portfolio" class="btn btn-secondary">Explore Productions</a>
+            <a href="https://www.imdb.com/name/nm11380196/" target="_blank" rel="noopener" class="btn btn-secondary">
+              Verified IMDb Profile ↗
+            </a>
+          </div>
+        </div>
+        
+        <!-- Elegant Headshot Placement -->
+        <div class="hero-image-container">
+          <div class="hero-image-wrapper">
+            <img src="anand_headshot.png" alt="Anand Anilkumar - Creative Director &amp; Producer" class="hero-image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Auto-Scrolling Brand & Production Marquee -->
+  <div class="marquee-section">
+    <div class="marquee-label">Trusted On Productions &amp; Campaigns For</div>
+    <div class="marquee-wrapper">
+      <div class="marquee-content">
+        <!-- MOM Hospital Kochi -->
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          <span>MOM Hospital Kochi</span>
+        </div>
+        <!-- Abbott -->
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>Abbott</span>
+        </div>
+        <!-- Primark -->
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z M2 4h20v16H2z"/></svg>
+          <span>Primark</span>
+        </div>
+        <!-- ShareFile -->
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+          <span>ShareFile</span>
+        </div>
+        <!-- Codelytica Dubai -->
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          <span>Codelytica Dubai</span>
+        </div>
+        <!-- Fortune Hives -->
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2l9 5.5v11L12 24l-9-5.5v-11z"/></svg>
+          <span>Fortune Hives</span>
+        </div>
+        <!-- Anibrain VFX -->
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM9 8h2v8H9zm4 0h2v8h-2z"/></svg>
+          <span>Anibrain VFX</span>
+        </div>
+        <!-- Manorama Music -->
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          <span>Manorama Music</span>
+        </div>
+      </div>
+
+      <!-- Duplicate for infinite seamless scroll -->
+      <div class="marquee-content" aria-hidden="true">
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          <span>MOM Hospital Kochi</span>
+        </div>
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>Abbott</span>
+        </div>
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z M2 4h20v16H2z"/></svg>
+          <span>Primark</span>
+        </div>
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+          <span>ShareFile</span>
+        </div>
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          <span>Codelytica Dubai</span>
+        </div>
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2l9 5.5v11L12 24l-9-5.5v-11z"/></svg>
+          <span>Fortune Hives</span>
+        </div>
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM9 8h2v8H9zm4 0h2v8h-2z"/></svg>
+          <span>Anibrain VFX</span>
+        </div>
+        <div class="brand-logo-item">
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          <span>Manorama Music</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Career Record (Timeline) -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Professional Track Record</div>
+        <h2 class="section-title">Experience &amp; Leadership</h2>
+        <p class="section-subtitle">
+          Demonstrated history managing multidisciplinary teams, C-level stakeholders, schedules, budgets, and post-production workflows.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <!-- UAE Work -->
+        <div class="timeline-item">
+          <div style="max-width: 820px;">
+            <div class="timeline-role-title">Creative Director / Creative Consultant</div>
+            <div class="timeline-company">Codelytica Digital Technologies &amp; Fortune Hives • Dubai, UAE</div>
+            <ul class="timeline-bullets">
+              <li>Develop creative strategies and visual direction for digital, brand, and marketing initiatives across both sister companies.</li>
+              <li>Guide the development of visual assets while maintaining strict brand consistency across all creative materials.</li>
+              <li>Manage and mentor creative contributors, supporting collaboration, quality control, and timely delivery.</li>
+              <li>Present creative concepts and recommendations clearly to stakeholders and translate feedback into actionable direction.</li>
+            </ul>
+          </div>
+          <div class="timeline-period">Jan 2022 — Present</div>
+        </div>
+
+        <!-- Film Creative Director -->
+        <div class="timeline-item">
+          <div style="max-width: 820px;">
+            <div class="timeline-role-title">Creative Director</div>
+            <div class="timeline-company">Film Industry (Commercials, Music Videos &amp; Branded Content)</div>
+            <ul class="timeline-bullets">
+              <li>Partner with directors to define creative vision, visual language, and overall aesthetics.</li>
+              <li>Oversee artistic direction, production design, and costume direction within schedule and budget constraints.</li>
+              <li>Develop and refine concepts, storylines, casting, and performance direction with multidisciplinary production teams.</li>
+            </ul>
+          </div>
+          <div class="timeline-period">Jan 2020 — Present</div>
+        </div>
+
+        <!-- Associate Director -->
+        <div class="timeline-item">
+          <div style="max-width: 820px;">
+            <div class="timeline-role-title">Associate Director / Chief Associate Director</div>
+            <div class="timeline-company">Feature Film &amp; Documentary Industry</div>
+            <ul class="timeline-bullets">
+              <li>Chief Associate Director on "Mr. X" (Tamil feature film starring Arya and Manju Warrier).</li>
+              <li>Associate Director on blockbuster "Driving Licence" (Malayalam) and Assistant Director on "Underworld".</li>
+              <li>Director of "Jananya", leading concept through post-production supervision.</li>
+              <li>Associate Director on global documentary projects for Primark (2023) and Abbott (2022), and corporate film for ShareFile (2023).</li>
+            </ul>
+          </div>
+          <div class="timeline-period">Jul 2018 — Present</div>
+        </div>
+
+        <!-- Anibrain VFX -->
+        <div class="timeline-item">
+          <div style="max-width: 820px;">
+            <div class="timeline-role-title">VFX Production Coordinator</div>
+            <div class="timeline-company">Anibrain • Pune</div>
+            <ul class="timeline-bullets">
+              <li>Coordinated VFX production workflows for international feature films and television projects.</li>
+              <li>Managed schedules, budgets, resource planning, and quality control through delivery.</li>
+              <li>Organized dailies, review sessions, and remote client reviews across supervisor and artist workstreams.</li>
+            </ul>
+          </div>
+          <div class="timeline-period">Jun 2016 — Jul 2017</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Featured Direction: Jananya Spotlight -->
+  <section id="spotlight">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Directorial Spotlight</div>
+        <h2 class="section-title">Jananya (ജനന്യ)</h2>
+        <p class="section-subtitle">
+          Directed by Anand Anilkumar. A groundbreaking music film exploring postpartum depression, launched by Manju Warrier and acclaimed across national and regional media.
+        </p>
+      </div>
+
+      <div class="spotlight-card">
+        <!-- Native YouTube Video Embed -->
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/DJzrys-BHKg" 
+            title="Jananya Music Video - Directed by Anand Anilkumar" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="spotlight-info">
+          <span class="work-tag">Directorial Work • Music Video</span>
+          <h3 style="font-size: 1.55rem; margin-bottom: 0.8rem; color:#fff;">Jananya</h3>
+          <p style="color: var(--muted); font-size: 0.92rem; margin-bottom: 1.3rem; line-height: 1.6;">
+            A socially driven cinematic narrative capturing the emotional isolation of motherhood and postpartum depression. Anand conducted month-long clinical research and chose to shoot at 100 fps to capture the subtle micro-expressions of maternal despair.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.4rem;">
+            <span class="btn-link-out">Director</span>
+            <span class="btn-link-out">Creative Concept</span>
+            <span class="btn-link-out">Visual Direction</span>
+            <span class="btn-link-out">Performance Coaching</span>
+            <span class="btn-link-out">Post Supervision</span>
+          </div>
+          <a href="https://www.youtube.com/watch?v=DJzrys-BHKg" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size: 0.82rem; width: fit-content;">
+            Watch On YouTube ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. In The Media Section -->
+  <section id="media">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Press &amp; Recognition</div>
+        <h2 class="section-title">In The Media</h2>
+        <p class="section-subtitle">
+          Editorial praise and feature reviews covering Anand Anilkumar's directorial vision for <em>Jananya</em> across major national and regional publications.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Onmanorama (Live Link) -->
+        <div class="media-card">
+          <div>
+            <div class="media-masthead">Onmanorama (English)</div>
+            <div class="media-headline">Music video Jananya explains why it's important to understand postpartum depression</div>
+            <p class="media-quote">
+              “‘Jananya’ sensitively depicts the overwhelming feeling of helplessness and despondency that some mothers have to overcome to enjoy motherhood... Shot at 100 fps to bring out micro expressions.”
+            </p>
+          </div>
+          <a href="https://www.onmanorama.com/entertainment/music/2020/02/18/jananya-music-video-on-postpartum-depression-women.html" target="_blank" rel="noopener" class="btn-link-out" style="width: fit-content;">
+            Read Full Article ↗
+          </a>
+        </div>
+
+        <!-- The News Minute (Live Link) -->
+        <div class="media-card">
+          <div>
+            <div class="media-masthead">The News Minute</div>
+            <div class="media-headline">1 in 7 moms has postpartum depression: Malayalam music video explores struggle</div>
+            <p class="media-quote">
+              “The music video called ‘Jananya’ is directed by Anand Anilkumar, and touches on a subject which is rarely shown on screen with heartfelt sensitivity.”
+            </p>
+          </div>
+          <a href="https://www.thenewsminute.com/features/1-7-moms-has-postpartum-depression-malayalam-music-video-explores-struggle-118542" target="_blank" rel="noopener" class="btn-link-out" style="width: fit-content;">
+            Read Full Article ↗
+          </a>
+        </div>
+
+        <!-- Malayala Manorama (Live Link) -->
+        <div class="media-card">
+          <div>
+            <div class="media-masthead">Malayala Manorama (Malayalam)</div>
+            <div class="media-headline">'കണ്ണു നിറയാതെ കണ്ടു പൂർത്തിയാക്കാനാവില്ല'; കാലികം, ഹൃദ്യം: വിഡിയോ</div>
+            <p class="media-quote">
+              “ലാൽജോസ്, ജോജു ജോർജ്, റിമ കല്ലിങ്കൽ തുടങ്ങിയ പ്രമുഖരുടെ പിന്തുണയോടെ റിലീസ് ചെയ്ത വിഡിയോ പ്രേക്ഷക ഹൃദയം കീഴടക്കുന്നു.”
+            </p>
+          </div>
+          <a href="https://www.manoramaonline.com/music/music-news/2020/02/20/jananya-music-video-on-postpartum-depression.html" target="_blank" rel="noopener" class="btn-link-out" style="width: fit-content;">
+            Read Regional Feature ↗
+          </a>
+        </div>
+
+        <!-- Times of India (Print / Feature Citation) -->
+        <div class="media-card">
+          <div>
+            <div class="media-masthead">The Times of India</div>
+            <div class="media-headline">Jananya song talks about healing postpartum</div>
+            <div class="media-byline">By Anna Mathews / TNN / Feb 15, 2020</div>
+            <p class="media-quote">
+              “Depression is still a little understood concept in our society and a new video song tries to elucidate the idea of postpartum depression and how it can be overcome with understanding. The song, launched recently by Manju Warrier, shows a new mom struggling...”
+            </p>
+          </div>
+          <span class="btn-link-out" style="width: fit-content; opacity: 0.85;">Featured in Entertainment &amp; Music Desk</span>
+        </div>
+
+        <!-- The Hindu (Press Feature Citation) -->
+        <div class="media-card">
+          <div>
+            <div class="media-masthead">The Hindu</div>
+            <div class="media-headline">Why it is important to talk about postpartum depression</div>
+            <div class="media-byline">Health &amp; Society Coverage</div>
+            <p class="media-quote">
+              Highlighted in national conversations emphasizing maternal mental health, mood disorders, and the importance of clinical empathy for new mothers.
+            </p>
+          </div>
+          <span class="btn-link-out" style="width: fit-content; opacity: 0.85;">National Health Desk</span>
+        </div>
+
+        <!-- The Week & Deccan Herald (Press Feature Citation) -->
+        <div class="media-card">
+          <div>
+            <div class="media-masthead">The Week &amp; Deccan Herald</div>
+            <div class="media-headline">Should seek help for postpartum depression: experts</div>
+            <div class="media-byline">National Feature Desk</div>
+            <p class="media-quote">
+              “One in seven new mothers suffers from this, but very few open up about their problems... ‘Jananya’ breaks the silence on maternal depression.”
+            </p>
+          </div>
+          <span class="btn-link-out" style="width: fit-content; opacity: 0.85;">Special Feature Slates</span>
+        </div>
+      </div>
+
+      <!-- Gulf News Feature Integration -->
+      <div class="feature-honor-box">
+        <div>
+          <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--accent); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.3rem;">Visual Arts Honor</div>
+          <div style="font-size: 1.15rem; font-weight: 700; color: #fff;">Featured Photographer • Gulf News (2025)</div>
+          <div style="color: var(--muted); font-size: 0.85rem; max-width: 680px; margin-top: 0.35rem;">
+            Featured by Gulf News for architectural and urban cityscape photography in the UAE, showcasing his eye for visual composition, light, and perspective.
+          </div>
+        </div>
+        <div style="white-space: nowrap;">
+          <span class="btn-link-out" style="border-color: var(--accent); color: var(--accent); font-weight: 600;">Gulf News 2025 Edition</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Film & Commercials Portfolio (Interactive Tabs & Drawers) -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Selected Production Credits</div>
+        <h2 class="section-title">Film, Commercial &amp; Corporate Slates</h2>
+        <p class="section-subtitle">
+          From multi-crore theatrical releases to global human-led corporate documentaries and commercials.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProjects('all')">All Work</button>
+        <button class="filter-btn" onclick="filterProjects('film')">Theatrical Films</button>
+        <button class="filter-btn" onclick="filterProjects('doc')">Documentaries &amp; Corporate</button>
+        <button class="filter-btn" onclick="filterProjects('ad')">Commercials &amp; Brand</button>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="grid-2" id="projectGrid">
+
+        <!-- Mr. X -->
+        <div class="card project-item" data-category="film">
+          <span class="work-tag">Feature Film • Tamil</span>
+          <div class="work-title-row">
+            <h3 style="font-size: 1.3rem; color:#fff;">Mr. X</h3>
+            <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">2024</span>
+          </div>
+          <p class="work-role">Chief Associate Director</p>
+          <p class="work-desc">
+            High-octane action thriller directed by Manu Anand, starring Arya, Gautham Karthik, and Manju Warrier. Produced by Prince Pictures.
+          </p>
+          <div class="work-links">
+            <a href="https://www.imdb.com/title/tt27989396/" target="_blank" rel="noopener" class="btn-link-out">IMDb Title ↗</a>
+            <a href="https://www.imdb.com/name/nm11380196/" target="_blank" rel="noopener" class="btn-link-out">Verified Credit ↗</a>
+          </div>
+          <button class="expand-toggle" onclick="toggleDetails(this)">
+            <span>View Responsibilities &amp; Execution</span> ▾
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Headed direction department logistics and day-to-day shoot execution.</li>
+              <li>Handled performance coordination and cast scheduling across multi-location schedules.</li>
+              <li>Collaborated on visual sequencing and high-stakes stunt unit direction.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Driving Licence -->
+        <div class="card project-item" data-category="film">
+          <span class="work-tag">Feature Film • Malayalam</span>
+          <div class="work-title-row">
+            <h3 style="font-size: 1.3rem; color:#fff;">Driving Licence</h3>
+            <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">2019</span>
+          </div>
+          <p class="work-role">Associate Director</p>
+          <p class="work-desc">
+            Critically and commercially acclaimed blockbuster directed by Jean Paul Lal (Lal Jr.), starring Prithviraj Sukumaran and Suraj Venjaramoodu.
+          </p>
+          <div class="work-links">
+            <a href="https://www.imdb.com/title/tt10587784/" target="_blank" rel="noopener" class="btn-link-out">IMDb ↗</a>
+            <a href="https://en.wikipedia.org/wiki/Driving_Licence_(film)" target="_blank" rel="noopener" class="btn-link-out">Wikipedia ↗</a>
+          </div>
+          <button class="expand-toggle" onclick="toggleDetails(this)">
+            <span>View Responsibilities &amp; Execution</span> ▾
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Co-ordinated cross-department execution between camera, sound, and talent.</li>
+              <li>Managed on-set production pacing, scene breakdowns, and second-unit setups.</li>
+              <li>Maintained narrative consistency through principal photography and post reviews.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Underworld -->
+        <div class="card project-item" data-category="film">
+          <span class="work-tag">Feature Film • Malayalam</span>
+          <div class="work-title-row">
+            <h3 style="font-size: 1.3rem; color:#fff;">Underworld</h3>
+            <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">2019</span>
+          </div>
+          <p class="work-role">Assistant Director</p>
+          <p class="work-desc">
+            Neo-noir crime thriller directed by Arun Kumar Aravind, starring Asif Ali, Farhaan Faasil, and Mukesh.
+          </p>
+          <div class="work-links">
+            <a href="https://www.imdb.com/title/tt9140416/" target="_blank" rel="noopener" class="btn-link-out">IMDb ↗</a>
+            <a href="https://en.wikipedia.org/wiki/Underworld_(2019_film)" target="_blank" rel="noopener" class="btn-link-out">Wikipedia ↗</a>
+          </div>
+          <button class="expand-toggle" onclick="toggleDetails(this)">
+            <span>View Responsibilities &amp; Execution</span> ▾
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Supported technical camera prep, shot charting, and script continuity.</li>
+              <li>Coordinated crowd management and precision action set-pieces on location.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- An International Local Story -->
+        <div class="card project-item" data-category="film">
+          <span class="work-tag">Feature Film • Malayalam</span>
+          <div class="work-title-row">
+            <h3 style="font-size: 1.3rem; color:#fff;">An International Local Story</h3>
+            <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">2019</span>
+          </div>
+          <p class="work-role">Assistant Director</p>
+          <p class="work-desc">
+            Comedy-drama marking the directorial debut of veteran actor Harisree Asokan, featuring an ensemble cast.
+          </p>
+          <div class="work-links">
+            <a href="https://www.imdb.com/title/tt9476900/" target="_blank" rel="noopener" class="btn-link-out">IMDb ↗</a>
+            <a href="https://en.wikipedia.org/wiki/An_International_Local_Story" target="_blank" rel="noopener" class="btn-link-out">Wikipedia ↗</a>
+          </div>
+          <button class="expand-toggle" onclick="toggleDetails(this)">
+            <span>View Responsibilities &amp; Execution</span> ▾
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>On-set direction department support, scheduling ensemble cast calls.</li>
+              <li>Production assistance across active urban shooting locations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Global Doc: Abbott -->
+        <div class="card project-item" data-category="doc">
+          <span class="work-tag">Documentary Film</span>
+          <div class="work-title-row">
+            <h3 style="font-size: 1.3rem; color:#fff;">Abbott: The Virus Hunt</h3>
+            <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">2022</span>
+          </div>
+          <p class="work-role">Associate Director</p>
+          <p class="work-desc">
+            Documentary tracing global viral surveillance, tracking scientific teams and healthcare breakthroughs in partnership with Abbott Laboratories.
+          </p>
+          <div class="work-links">
+            <span class="btn-link-out">Global Healthcare Client</span>
+          </div>
+          <button class="expand-toggle" onclick="toggleDetails(this)">
+            <span>View Responsibilities &amp; Execution</span> ▾
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Oversaw documentary field shoot logistics, subject interviews, and sensitivity protocols.</li>
+              <li>Collaborated on narrative structure and post-production asset handoff.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Global Doc: Primark -->
+        <div class="card project-item" data-category="doc">
+          <span class="work-tag">Brand Documentary</span>
+          <div class="work-title-row">
+            <h3 style="font-size: 1.3rem; color:#fff;">Primark: Sustainable Futures</h3>
+            <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">2023</span>
+          </div>
+          <p class="work-role">Associate Director</p>
+          <p class="work-desc">
+            Human-led grassroots documentary capturing rural livelihoods, community transformation, and sustainable sourcing programs.
+          </p>
+          <div class="work-links">
+            <span class="btn-link-out">Global Retail Brand</span>
+          </div>
+          <button class="expand-toggle" onclick="toggleDetails(this)">
+            <span>View Responsibilities &amp; Execution</span> ▾
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Conducted on-ground field production coordination in remote rural communities.</li>
+              <li>Managed bilingual translation, subject rapport, and naturalistic cinematography direction.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Corporate: ShareFile -->
+        <div class="card project-item" data-category="doc">
+          <span class="work-tag">Corporate Narrative</span>
+          <div class="work-title-row">
+            <h3 style="font-size: 1.3rem; color:#fff;">ShareFile Corporate Film</h3>
+            <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">2023</span>
+          </div>
+          <p class="work-role">Associate Director</p>
+          <p class="work-desc">
+            Enterprise video communication illustrating modern collaborative workflow systems and cloud technology infrastructure.
+          </p>
+          <div class="work-links">
+            <span class="btn-link-out">B2B Enterprise Film</span>
+          </div>
+          <button class="expand-toggle" onclick="toggleDetails(this)">
+            <span>View Responsibilities &amp; Execution</span> ▾
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Led creative development and corporate stakeholder alignment.</li>
+              <li>Managed corporate interior shoot execution and slick tech-driven post-production.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Commercials: Humankind -->
+        <div class="card project-item" data-category="ad">
+          <span class="work-tag">Advertising Commercials</span>
+          <div class="work-title-row">
+            <h3 style="font-size: 1.3rem; color:#fff;">Humankind Adverts</h3>
+            <span style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">Agency Slates</span>
+          </div>
+          <p class="work-role">Creative Director / Associate Director</p>
+          <p class="work-desc">
+            Dynamic advertising films pairing vivid cultural visual motifs with commercial product storytelling and high-impact pacing.
+          </p>
+          <div class="work-links">
+            <span class="btn-link-out">Commercial Advertising</span>
+          </div>
+          <button class="expand-toggle" onclick="toggleDetails(this)">
+            <span>View Responsibilities &amp; Execution</span> ▾
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Authored creative concepts, storyboards, and director treatment decks.</li>
+              <li>Supervised color grading, sound design, and rapid delivery across ad formats.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Credentials & Technical Foundation -->
+  <section id="credentials">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Foundation</div>
+        <h2 class="section-title">Education &amp; Technical Stack</h2>
+      </div>
+
+      <div class="credentials-grid">
+        <div class="card">
+          <h3 style="color: var(--accent); margin-bottom: 0.8rem;">Education</h3>
+          <p style="font-weight: 600; color: #fff;">Master's Degree in Visual Effects (VFX)</p>
+          <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 1.1rem;">ICAT Design &amp; Media College, Bangalore (2012 — 2013)</p>
+          
+          <p style="font-weight: 600; color: #fff;">B.A. in Filmmaking &amp; Sound Engineering</p>
+          <p style="color: var(--muted); font-size: 0.88rem;">SAE College, Chennai (2008 — 2010)</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent); margin-bottom: 0.8rem;">Technical Tools</h3>
+          <ul style="list-style: none; color: var(--muted); font-size: 0.9rem; line-height: 2;">
+            <li>✓ Adobe Creative Cloud (Premiere Pro, After Effects, Photoshop)</li>
+            <li>✓ DaVinci Resolve (Color Grading &amp; Editing)</li>
+            <li>✓ Pre-visualization &amp; Storyboard Pipelines</li>
+            <li>✓ VFX Pipeline &amp; Shot Tracking Workflows</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent); margin-bottom: 0.8rem;">Core Competencies</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+            <span class="btn-link-out">Creative Direction</span>
+            <span class="btn-link-out">Production Logistics</span>
+            <span class="btn-link-out">Budget Coordination</span>
+            <span class="btn-link-out">Stakeholder Pitching</span>
+            <span class="btn-link-out">Team Mentoring</span>
+            <span class="btn-link-out">Post-Production QC</span>
+            <span class="btn-link-out">Brand Consistency</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Contact / Hiring Call To Action -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div class="section-eyebrow">Hiring &amp; Collaborations</div>
+        <h2>Ready to collaborate in the UAE?</h2>
+        <p style="color: var(--muted); max-width: 620px; margin: 0 auto; font-size: 1.02rem;">
+          Open for full-time Creative Director / Creative Producer roles, agency consultant engagements, and commercial film productions across Abu Dhabi, Dubai, and the GCC.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:anandanilkumar.work@gmail.com" class="btn btn-primary">
+            📧 anandanilkumar.work@gmail.com
+          </a>
+          <a href="Anand_Anilkumar_Resume.pdf" download="Anand_Anilkumar_Resume.pdf" class="btn btn-secondary" style="border-color: var(--accent); color: var(--accent); font-weight: 700;">
+            📄 Download CV (PDF) ⤓
+          </a>
+          <a href="tel:+971507870604" class="btn btn-secondary">
+            📞 +971 50 787 0604
+          </a>
+          <a href="https://linkedin.com/in/anandanilkumar" target="_blank" rel="noopener" class="btn btn-secondary">
+            LinkedIn Profile ↗
+          </a>
+          <a href="https://www.imdb.com/name/nm11380196/" target="_blank" rel="noopener" class="btn btn-secondary">
+            IMDb Profile ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; Anand Anilkumar. Creative Director &amp; Producer • Abu Dhabi, UAE.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Mobile Drawer Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('active');
+    });
+
+    // Close menu when mobile links are clicked
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('active');
+      });
+    });
+
+    // Project Category Filtering
+    function filterProjects(category) {
+      const items = document.querySelectorAll('.project-item');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      // Update button active states
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Filter cards
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Toggle Details Accordion
+    function toggleDetails(button) {
+      const content = button.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+
+      if (isOpen) {
+        content.classList.remove('open');
+        button.querySelector('span').textContent = 'View Responsibilities & Execution';
+      } else {
+        content.classList.add('open');
+        button.querySelector('span').textContent = 'Hide Details';
+      }
+    }
+  </script>
+</body>
+</html>
